@@ -1,0 +1,9 @@
+@charset 'utf-8';
+
+$transition: 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+$transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+$transition-slow2: 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+$transition-slow22: 1000ms cubic-bezier(0.4, 0, 0.2, 1) 300ms;
+$transition-vSlow: 2000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+$transition-test: 1000ms cubic-bezier(0.4, 0, 0.2, 1) 600ms;

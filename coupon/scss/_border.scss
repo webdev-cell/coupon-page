@@ -1,0 +1,17 @@
+@charset 'utf-8';
+
+@mixin border-a($color: $b4, $weight: 1px, $type: solid) {
+  border: $color $weight $type;
+}
+@mixin border-t($color: $b4, $weight: 1px, $type: solid) {
+  border-top: $color $weight $type;
+}
+@mixin border-r($color: $b4, $weight: 1px, $type: solid) {
+  border-right: $color $weight $type;
+}
+@mixin border-b($color: $b4, $weight: 1px, $type: solid) {
+  border-bottom: $color $weight $type;
+}
+@mixin border-l($color: $b4, $weight: 1px, $type: solid) {
+  border-left: $color $weight $type;
+}

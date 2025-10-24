@@ -1,0 +1,272 @@
+@charset "UTF-8";
+@use 'util_mixins' as *;
+
+$mw: 1280px;
+$fmw: 2560px;
+$m-mw: 360px;
+$m-fmw: 1080px;
+
+@mixin maxMobile() {
+  @media (max-width: $m-fmw) {
+    @content;
+  }
+}
+
+body {
+  min-width: $mw;
+  @media screen and (min-width: $mw) {
+    overflow-x: hidden;
+  }
+  @include maxMobile {
+    min-width: $m-mw;
+  }
+
+  .coupon-page-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+
+    .sr-only,
+    figcaption {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      pointer-events: none;
+    }
+
+    .banner-area {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background-color: #1e1c27;
+
+      .banner {
+        width: 100%;
+        max-width: $fmw;
+        height: 530px;
+        @include bg('20th_couponPage-banner.jpg');
+        @include maxMobile {
+          width: clamp(360px, 100%, 1080px);
+          height: auto;
+          @include bg('m_20th_couponPage-banner.jpg', center);
+          background-repeat: no-repeat;
+          background-size: cover;
+          aspect-ratio: 1080 / 670;
+        }
+      }
+    }
+
+    .bottom-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      width: 100%;
+      background-color: $r-white;
+      @include maxMobile {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .coupon-input-area {
+        display: flex;
+        flex-direction: column;
+        width: 420px;
+        @include maxMobile {
+          width: 100%;
+        }
+
+        h2 {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          margin-top: 40px;
+          margin-bottom: 30px;
+          text-align: center;
+          @include f-m(24px, $r-black);
+          @include border-b($gray2, 4px);
+          @include maxMobile {
+            margin-top: 20px;
+            margin-bottom: 26px;
+            font-size: 20px;
+            border-width: 2px;
+          }
+        }
+
+        input {
+          padding: 15px 24px;
+          margin-bottom: 30px;
+          @include f-m(20px, $r-black);
+          background-color: $gray;
+          outline: none;
+          border: none;
+
+          &::placeholder {
+            @include f-m(20px, $r-black);
+          }
+          @include maxMobile {
+            padding: 13px 16px;
+            font-size: 16px;
+            &::placeholder {
+              font-size: 16px;
+            }
+          }
+        }
+
+        button {
+          align-self: center;
+          padding: 17px 75px;
+          border-radius: 100px;
+          background-color: $r-black;
+          @include f-m(24px, $r-white);
+          cursor: pointer;
+          transition: opacity $transition-fast;
+          @include maxMobile {
+            width: 100%;
+            font-size: 20px;
+          }
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        span {
+          margin-top: 40px;
+          @include f-m(14px, $r-black-5);
+          @include maxMobile {
+            font-size: 12px;
+          }
+        }
+
+        p {
+          padding-left: 5px;
+          margin-top: 6px;
+          @include f-m(14px, $r-black-5);
+          @include maxMobile {
+            font-size: 12px;
+          }
+        }
+      }
+
+      footer {
+        .logo {
+          width: 160px;
+          height: 19px;
+          margin-top: -7px;
+          @include bg('logo.svg');
+          @include maxMobile {
+            width: 84px;
+            height: 10px;
+          }
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 476px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        @include f-m(14px, $gray2);
+        @include maxMobile {
+          width: 100%;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $r-black-5;
+    opacity: 0;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    > div {
+      @include center-align;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      border-radius: 12px;
+      background-color: $r-white;
+
+      button {
+        cursor: pointer;
+        transition: opacity $transition-fast;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 56px;
+        height: 56px;
+        @include maxMobile {
+          width: 48px;
+          height: 48px;
+        }
+
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 2px;
+          height: 24px;
+          background-color: $r-black-5;
+          transition: opacity $transition-fast;
+          @include maxMobile {
+            height: 21px;
+          }
+        }
+
+        &:before {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &:after {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      p {
+        padding-top: 24px;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+        @include f-m(16px, $r-black);
+      }
+
+      .confirm {
+        padding: 10px 49px;
+        border-radius: 12px;
+        background-color: $r-black;
+        @include f-m(16px, $r-white);
+        @include maxMobile {
+          padding: 9px 26px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

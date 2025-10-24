@@ -1,0 +1,86 @@
+@charset 'utf-8';
+@use 'pallet' as *;
+
+$regular: 400 !default;
+$thin: 100;
+$extraLight: 200;
+$light: 300;
+// $demiLight: 350;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+$extraBold: 800;
+$fblack: 900;
+$fontSize: 16px;
+
+@mixin f-t($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $thin;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-el($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $extraLight;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-l($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $light;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-r($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $regular;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-m($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $medium;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-sb($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $semiBold;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-b($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $bold;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-eb($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $extraBold;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin f-fb($size: $fontSize, $color: $r-black, $lh: 150%, $ls: -0.03px) {
+  color: $color;
+  font-size: $size;
+  font-weight: $fblack;
+  line-height: $lh;
+  letter-spacing: $ls;
+}

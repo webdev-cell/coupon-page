@@ -1,0 +1,8 @@
+@charset 'utf-8';
+@use 'path' as *;
+
+@mixin bg($targetImg, $bp: center center) {
+  background-image: url(#{$Img}#{$targetImg});
+  background-position: $bp;
+  background-repeat: no-repeat;
+}

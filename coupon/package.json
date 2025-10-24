@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "scss": "sass --watch scss/main-index.scss:css/main.css"
+  }
+}

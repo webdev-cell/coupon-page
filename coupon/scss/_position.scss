@@ -1,0 +1,27 @@
+@charset 'utf-8';
+
+@mixin static-align {
+  position: static !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: translate(0, 0) !important;
+}
+
+@mixin center-align($position: absolute) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin vertical-align($position: absolute) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin horizontal-align($position: absolute) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
